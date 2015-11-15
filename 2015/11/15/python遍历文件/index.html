@@ -4,17 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>my new post | Hexo</title>
+    <title>python遍历文件 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="John Doe">
     
-    <meta name="description" content="this is my first new post 
-this is a quote
-
-
-
-‘code’code">
+    <meta name="description" content="os.walk()函数os.walk()可以得到一个三元tupple(dirpath, dirnames, filenames)，其中第一个为起始路径，第二个为起始路径下的文件夹，第三个是起始路径下的文件。其中dirpath是一个string，代表目录的路径，dirnames是一个list，包含了d">
     
     
     
@@ -70,15 +65,15 @@ this is a quote
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/11/15/my-new-post/" title="my new post" itemprop="url">my new post</a>
+      <a href="/2015/11/15/python遍历文件/" title="python遍历文件" itemprop="url">python遍历文件</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="John Doe">John Doe</a>
     </p>
   <p class="article-time">
-    <time datetime="2015-11-15T03:14:19.000Z" itemprop="datePublished">2015-11-15</time>
-    更新日期:<time datetime="2015-11-15T04:47:45.000Z" itemprop="dateModified">2015-11-15</time>
+    <time datetime="2015-11-15T04:49:13.000Z" itemprop="datePublished">2015-11-15</time>
+    更新日期:<time datetime="2015-11-15T05:29:07.000Z" itemprop="dateModified">2015-11-15</time>
     
   </p>
 </header>
@@ -90,23 +85,27 @@ this is a quote
 		
 		</div>
 		
-		<ul>
-<li>this is my first new post <blockquote>
-<p><strong>this is a quote</strong></p>
-</blockquote>
-</li>
-</ul>
-<p>‘code’<br><code>code</code> </p>
-  
+		<p>os.walk()函数<br>os.walk()可以得到一个三元tupple(dirpath, dirnames, filenames)，其中第一个为起始路径，第二个为起始路径下的文件夹，第三个是起始路径下的文件。<br>其中dirpath是一个string，代表目录的路径，dirnames是一个list，包含了dirpath下所有子目录的名字。filenames是一个list，包含了非目录文件的名字。这些名字不包含路径信息，如果需要得到全路径，需要使用os.path.join(dirpath, name).<br>当根目录下的文件被遍历完毕后，dirnames里的文件夹开始变为根目录，同时dirpath变为该子文件夹目录，以此类推，直到遍历完所有文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">folder=<span class="string">'E:\\test'</span></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(folder):</span><br><span class="line">	<span class="keyword">for</span> f <span class="keyword">in</span> files:</span><br><span class="line">		filename = os.path.join(root, f)</span><br><span class="line">		<span class="keyword">print</span> filename</span><br></pre></td></tr></table></figure></p>
+<p>输出：</p>
+<pre><code>
+E:\test\walktest.py
+E:\test\bicycle\0.txt
+E:\test\run\1.txt
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/python/">python</a>
+  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/11/15/my-new-post/" data-title="my new post | Hexo" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/11/15/python遍历文件/" data-title="python遍历文件 | Hexo" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -115,19 +114,11 @@ this is a quote
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/11/15/python遍历文件/" title="python遍历文件">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  python遍历文件</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/11/15/hello-world/"  title="Hello World">
+<a href="/2015/11/15/my-new-post/"  title="my new post">
  <strong>NEXT:</strong><br/> 
- <span>Hello World
+ <span>my new post
 </span>
 </a>
 </div>
