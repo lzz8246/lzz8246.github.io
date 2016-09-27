@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C#,MATLAB," />
 
 
 
@@ -53,19 +53,28 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="#MATLAB环境配置Matlab首先需要安装mex和mbuild键入
+
+mex -setup选择y和对应的编译器done后继续键入mbuild -setup同样选择y和对应的编译器。done后MATLAB的环境就弄好了。下面介绍如何将matlab的函数导出成C#能识别的dll
+#导出Dll
+##定义MATLAB函数文件这里以一个最简单的加法函数来说明，新建一个函数文件funcAdd，代码如下：1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2015/11/15/hello-world/index.html">
+<meta property="og:title" content="MATLAB与C#混合编程">
+<meta property="og:url" content="http://yoursite.com/2016/09/27/MATLAB与C-混合编程/index.html">
 <meta property="og:site_name" content="XiaoPang">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2015-11-15T03:11:57.000Z">
+<meta property="og:description" content="#MATLAB环境配置Matlab首先需要安装mex和mbuild键入
+
+mex -setup选择y和对应的编译器done后继续键入mbuild -setup同样选择y和对应的编译器。done后MATLAB的环境就弄好了。下面介绍如何将matlab的函数导出成C#能识别的dll
+#导出Dll
+##定义MATLAB函数文件这里以一个最简单的加法函数来说明，新建一个函数文件funcAdd，代码如下：1">
+<meta property="og:updated_time" content="2016-09-27T15:06:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="MATLAB与C#混合编程">
+<meta name="twitter:description" content="#MATLAB环境配置Matlab首先需要安装mex和mbuild键入
+
+mex -setup选择y和对应的编译器done后继续键入mbuild -setup同样选择y和对应的编译器。done后MATLAB的环境就弄好了。下面介绍如何将matlab的函数导出成C#能识别的dll
+#导出Dll
+##定义MATLAB函数文件这里以一个最简单的加法函数来说明，新建一个函数文件funcAdd，代码如下：1">
 
 
 
@@ -77,7 +86,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | XiaoPang </title>
+  <title> MATLAB与C#混合编程 | XiaoPang </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -207,7 +216,7 @@ Quick">
             
             
               
-                Hello World
+                MATLAB与C#混合编程
               
             
           </h1>
@@ -216,8 +225,8 @@ Quick">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-15T11:11:57+08:00" content="2015-11-15">
-              2015-11-15
+            <time itemprop="dateCreated" datetime="2016-09-27T22:43:24+08:00" content="2016-09-27">
+              2016-09-27
             </time>
           </span>
 
@@ -227,8 +236,8 @@ Quick">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/15/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/15/hello-world/" itemprop="commentsCount"></span>
+                <a href="/2016/09/27/MATLAB与C-混合编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/27/MATLAB与C-混合编程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -247,33 +256,45 @@ Quick">
       
 
       
-        <span itemprop="articleBody"><p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <span itemprop="articleBody"><p>#MATLAB环境配置<br>Matlab首先需要安装mex和mbuild<br>键入</p>
+<blockquote>
+<p>mex -setup<br>选择y和对应的编译器<br>done后继续键入<br>mbuild -setup<br>同样选择y和对应的编译器。done后MATLAB的环境就弄好了。<br>下面介绍如何将matlab的函数导出成C#能识别的dll</p>
+<p>#导出Dll</p>
+<p>##定义MATLAB函数文件<br>这里以一个最简单的加法函数来说明，新建一个函数文件funcAdd，代码如下：<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[c]</span>=<span class="title">funcAdd</span><span class="params">(a,b)</span></span></span><br><span class="line">c=a+b;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>即实现两个数相加的功能，注意的是这里是可以实现函数的嵌套调用的。</p>
+<p>##编译函数文件<br>在matlab中输入</p>
+<blockquote>
+<p>deploytool<br>选择工程的目录，并注意将type选择成为.net Assembly，打开编译工具如图：<br>…先写到这里，因为我的matlab中并没有出现.NET Assembly</p>
+</blockquote>
+<p>#VS配置</p>
+<p>#MWArray使用</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag">#C#</a>
+          
+            <a href="/tags/MATLAB/" rel="tag">#MATLAB</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/03/python古风歌词生成器/" rel="next" title="python古风歌词生成器">
+                <i class="fa fa-chevron-left"></i> python古风歌词生成器
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/15/python遍历文件/" rel="prev" title="python遍历文件">
-                python遍历文件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -323,8 +344,8 @@ Quick">
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/15/hello-world/"
-           data-title="Hello World" data-url="http://yoursite.com/2015/11/15/hello-world/">
+      <div class="ds-thread" data-thread-key="2016/09/27/MATLAB与C-混合编程/"
+           data-title="MATLAB与C#混合编程" data-url="http://yoursite.com/2016/09/27/MATLAB与C-混合编程/">
       </div>
     
   </div>
@@ -432,7 +453,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick_Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create_a_new_post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run_server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate_static_files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy_to_remote_sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
