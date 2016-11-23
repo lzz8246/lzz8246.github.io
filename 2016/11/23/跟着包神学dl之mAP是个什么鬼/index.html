@@ -37,7 +37,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="python," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -53,16 +53,25 @@
 
 
 
-<meta name="description" content="os.walk()函数os.walk()可以得到一个三元tupple(dirpath, dirnames, filenames)，其中第一个为起始路径，第二个为起始路径下的文件夹，第三个是起始路径下的文件。其中dirpath是一个string，代表目录的路径，dirnames是一个list，包含了dirpath下所有子目录的名字。filenames是一个list，包含了非目录文件的名字。这些名字不">
+<meta name="description" content="说到object detection就不得不提mAP（mean average precision，平均准确率），也就是用来衡量一个目标检测算法效果的单值指标。最近在做一个用FRCN进行salient object detection的工作，检测结果都跑出来了，但是不知道是哪个地方没有设置正确，跑完程序显示的result那一项一直是0。一怒之下和包神逐步运行了VOC中的VOCevaldet代码，大">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python遍历文件">
-<meta property="og:url" content="http://yoursite.com/2015/11/15/python遍历文件/index.html">
+<meta property="og:title" content="跟着包神学dl之mAP是个什么鬼">
+<meta property="og:url" content="http://yoursite.com/2016/11/23/跟着包神学dl之mAP是个什么鬼/index.html">
 <meta property="og:site_name" content="XiaoPang knows nothing">
-<meta property="og:description" content="os.walk()函数os.walk()可以得到一个三元tupple(dirpath, dirnames, filenames)，其中第一个为起始路径，第二个为起始路径下的文件夹，第三个是起始路径下的文件。其中dirpath是一个string，代表目录的路径，dirnames是一个list，包含了dirpath下所有子目录的名字。filenames是一个list，包含了非目录文件的名字。这些名字不">
-<meta property="og:updated_time" content="2015-11-15T05:29:07.000Z">
+<meta property="og:description" content="说到object detection就不得不提mAP（mean average precision，平均准确率），也就是用来衡量一个目标检测算法效果的单值指标。最近在做一个用FRCN进行salient object detection的工作，检测结果都跑出来了，但是不知道是哪个地方没有设置正确，跑完程序显示的result那一项一直是0。一怒之下和包神逐步运行了VOC中的VOCevaldet代码，大">
+<meta property="og:image" content="http://yoursite.com/images/PandR.jpg">
+<meta property="og:image" content="http://yoursite.com/images/PRCurve.jpg">
+<meta property="og:image" content="http://yoursite.com/images/sample.jpg">
+<meta property="og:image" content="http://yoursite.com/images/readGT.jpg">
+<meta property="og:image" content="http://yoursite.com/images/readResults.jpg">
+<meta property="og:image" content="http://yoursite.com/images/procResults1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/IoU.jpg">
+<meta property="og:image" content="http://yoursite.com/images/procResults2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/AP.jpg">
+<meta property="og:updated_time" content="2016-11-23T15:25:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python遍历文件">
-<meta name="twitter:description" content="os.walk()函数os.walk()可以得到一个三元tupple(dirpath, dirnames, filenames)，其中第一个为起始路径，第二个为起始路径下的文件夹，第三个是起始路径下的文件。其中dirpath是一个string，代表目录的路径，dirnames是一个list，包含了dirpath下所有子目录的名字。filenames是一个list，包含了非目录文件的名字。这些名字不">
+<meta name="twitter:title" content="跟着包神学dl之mAP是个什么鬼">
+<meta name="twitter:description" content="说到object detection就不得不提mAP（mean average precision，平均准确率），也就是用来衡量一个目标检测算法效果的单值指标。最近在做一个用FRCN进行salient object detection的工作，检测结果都跑出来了，但是不知道是哪个地方没有设置正确，跑完程序显示的result那一项一直是0。一怒之下和包神逐步运行了VOC中的VOCevaldet代码，大">
 
 
 
@@ -74,7 +83,7 @@
   };
 </script>
 
-  <title> python遍历文件 | XiaoPang knows nothing </title>
+  <title> 跟着包神学dl之mAP是个什么鬼 | XiaoPang knows nothing </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +213,7 @@
             
             
               
-                python遍历文件
+                跟着包神学dl之mAP是个什么鬼
               
             
           </h1>
@@ -213,8 +222,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-11-15T12:49:13+08:00" content="2015-11-15">
-              2015-11-15
+            <time itemprop="dateCreated" datetime="2016-11-23T23:12:31+08:00" content="2016-11-23">
+              2016-11-23
             </time>
           </span>
 
@@ -224,8 +233,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/15/python遍历文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/15/python遍历文件/" itemprop="commentsCount"></span>
+                <a href="/2016/11/23/跟着包神学dl之mAP是个什么鬼/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/跟着包神学dl之mAP是个什么鬼/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -244,40 +253,94 @@
       
 
       
-        <span itemprop="articleBody"><p>os.walk()函数<br>os.walk()可以得到一个三元tupple(dirpath, dirnames, filenames)，其中第一个为起始路径，第二个为起始路径下的文件夹，第三个是起始路径下的文件。<br>其中dirpath是一个string，代表目录的路径，dirnames是一个list，包含了dirpath下所有子目录的名字。filenames是一个list，包含了非目录文件的名字。这些名字不包含路径信息，如果需要得到全路径，需要使用os.path.join(dirpath, name).<br>当根目录下的文件被遍历完毕后，dirnames里的文件夹开始变为根目录，同时dirpath变为该子文件夹目录，以此类推，直到遍历完所有文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">folder=<span class="string">'E:\\test'</span></span><br><span class="line"><span class="keyword">for</span> root, dirs, files <span class="keyword">in</span> os.walk(folder):</span><br><span class="line">	<span class="keyword">for</span> f <span class="keyword">in</span> files:</span><br><span class="line">		filename = os.path.join(root, f)</span><br><span class="line">		<span class="keyword">print</span> filename</span><br></pre></td></tr></table></figure></p>
-<p>输出：</p>
-<pre><code>
-E:\test\walktest.py
-E:\test\bicycle\0.txt
-E:\test\run\1.txt
-</code></pre></span>
+        <span itemprop="articleBody"><p>说到object detection就不得不提mAP（mean average precision，平均准确率），也就是用来衡量一个目标检测算法效果的单值指标。最近在做一个用FRCN进行salient object detection的工作，检测结果都跑出来了，但是不知道是哪个地方没有设置正确，跑完程序显示的result那一项一直是0。一怒之下和包神逐步运行了VOC中的VOCevaldet代码，大致弄懂了mAP的基本算法，现记录如下。</p>
+<p>首先提一下recall和precision的概念。</p>
+<p>Recall就是召回率= 系统检索到的相关目标 / 系统所有相关的目标总数</p>
+<p>Precision就是准确率 =  系统检索到的相关目标 / 系统所有检索到的目标总数</p>
+<p><img src="/images/PandR.jpg" alt="1" title="precision and recall"></p>
+<p>一般来说，准确率和召回率是互相影响的，理想情况下肯定是做到两者都高，但是一般情况下准确率高、召回率就低，召回率低、准确率高，当然如果两者都低，那是什么地方出问题了。对于目标检测系统来说，用两个值来表示性能显然并不合理。因此就有了AP和mAP的概念。</p>
+<p>对于AP（Average Precision）表示一个类别的平均精度，而mAP即所有类别的平均精度的均值。下面将详细描述AP的计算过程。</p>
+<p>参考下图，其中两条曲线(方块点与圆点)分布对应了两个检索系统的准确率-召回率曲线：</p>
+<p><img src="/images/PRCurve.jpg" alt="1" title="PR Curve"></p>
+<p>可以看出，虽然两个系统的性能曲线有所交叠但是以圆点标示的系统的性能在绝大多数情况下要远好于用方块标示的系统。</p>
+<p>从中我们可以 发现一点，如果一个系统的性能较好，其曲线应当尽可能的向上突出。</p>
+<p>更加具体的，曲线与坐标轴之间的面积应当越大。AP即表示这条PR曲线下的面积。</p>
+<p>从VOCeval的代码并设计一个实际情况来详细分析：</p>
+<p>考虑如下情况：</p>
+<p><img src="/images/sample.jpg" alt="1" title="sample"></p>
+<p>有两张图像，第一张图中有两个目标，第二张中有三个，都用红色框表示并以a-e命名，这些即groundtruth，假设有一个目标检测系统在图片一种检测到了三个区域，图片二中也检测到了三个区域。这些检测到的以1-6命名。</p>
+<p>下面是读取groundtruth 的代码</p>
+<p><img src="/images/readGT.jpg" alt="1" title="code of gt reading"></p>
+<p>gt表示所有图片上groundtruth的结构体数组，每个结构体由BB（图片上所有标注框的坐标）diff（每个框是否为困难样本）以及det（该框是否被检测过的标记）组成，对于这种情况，gt的长度为2，其中gt(1)的BB、diff、det均为2维，gt(2)为三维，分别表示图一和图二中的groundtruth目标。</p>
+<p>接下来是读取检测结果。</p>
+<p><img src="/images/readResults.jpg" alt="1" title="code of results reading"></p>
+<p>与gt不同，检测结果是以检测到的框为基本单元，其中ids表示检测框所在的图片，b1-b4表示这个框的坐标，confidence表示这个框在生成时的置信度。这里进行了一个按照置信度排序的操作。本例中认为检测框的置信度就是按照1-6排序的。</p>
+<p>然后建立了两个与框数量等长的数组tp和fp，其中t和f分别表示true和false，即正检和误检的样本。</p>
+<p>接下来就开始进行AP的计算了，循环处理每一个检测框。</p>
+<p><img src="/images/procResults1.jpg" alt="1" title="code of results processing 1"></p>
+<p>首先根据检测框的图片id找到对应的原始图片groundtruth，也就是代码中的序号i和gt（i）。然后遍历该图像中每一个groundtruth框，计算其与该检测框的IoU，并记录下最大IoU和对应的groundtruth框id，也就是这里的ovmax及jmax。</p>
+<p>关于什么时候IoU呢，如下图：</p>
+<p><img src="/images/IoU.jpg" alt="1" title="IoU"></p>
+<p>也就是说IoU为重叠部分除上总面积。也就是衡量两个框框相似程度的指标。</p>
+<p>接下来的代码就是根据IoU来进行tp和fp的判断：</p>
+<p><img src="/images/procResults2.jpg" alt="1" title="code of results processing 2"></p>
+<p>设定一个IoU的阈值，一般是0.5，当一张图的gt框与检测框的最大IoU超过这个阈值，并且为非difficult样本同时这个gt框没有被检测过的时候记录这个检测框的tp为1，fp为0，同时将这个gt框标记为已检测到。如果后面有一个检测框与该gt框IoU虽然也超过了阈值但依然认为其为一个误检。遍历玩所有检测框后，tp，fp就变成了一个由0,1构成的数组。对应位置上的0和1分别表示该位置的检测框是否为正检和误检。</p>
+<p>回到例子中，可以看到框1,2,4,5是与gt框a,b,c,d的IoU都超过0.5，因此为正检，框3,6为误检，tp，fp数组分别为</p>
+<p>tp=[1,1,0,1,1,0]</p>
+<p>fp=[0,0,1,0,0,1]</p>
+<p>到了最后一步了，代码如下：</p>
+<p><img src="/images/AP.jpg" alt="1" title="code of AP computing"></p>
+<p>首先有一个cumsum的过程，这个函数表示累加，累加后的tp、fp就变成了：</p>
+<p>tp=[1,2,2,3,4,4]</p>
+<p>fp=[0,0,1,1,1,2]</p>
+<p>然后就可以计算recall和precision了，这里的npos表示gt框的总数，也就是5.</p>
+<p>Recall=tp/npos,也就是[0.2,0.4,0.4,0.6,0.8,0,8]，理解为到第几个框的时候（随着置信度降低），检测正确的框占总gt框数的比例。</p>
+<p>Precision=tp/(tp+fp),也就是[1,1,2/3,3/4,4/5,2/3],理解为到第几个框的时候（随着置信度的降低），检测正确的框占当前总检测数的比例。</p>
+<p>接下来的一步，不是很好理解，我也没弄太明白，大概流程就是讲recall分成11个阈值，即[0,0.1，……1.0]。然后找出大于这个阈值所有recall的对应precision的最大值，如果一个区间里找不到超过阈值的recall值，就记这个区间的最大精度为零，最后将所有区间的最大精度平均就可以得到这个类别的检测AP了。这一步相当于找出每一个最低recall的基础上检测系统能达到的最高精度，然后将这些精度乘上对应得区间范围并累计，也就相当于文章开头提到的计算PR曲线下面积的过程。</p>
+<p>对于本例，来逐步求一下AP：</p>
+<p>Recall=[0.2,0.4,0.4,0.6,0.8,0,8]</p>
+<p>Precision=[1,1,2/3,3/4,4/5,2/3]</p>
+<p>首先recall阈值为0，所有recall都满足，对应的最大精度为1</p>
+<p>ap=0+1/11;</p>
+<p>阈值0.1，所有recall都满足，对应的最大精度为1</p>
+<p>Ap=1/11+1/11;</p>
+<p>阈值0.2，所有recall都满足，对应的最大精度为1</p>
+<p>Ap=1/11+1/11+1/11；</p>
+<p>阈值0.3，2-6满足，对应最大精度为1</p>
+<p>Ap=1/11+1/11+1/11+1/11;</p>
+<p>阈值0.4,2-6满足，对应最大精度为1</p>
+<p>Ap=1/11+1/11+1/11+1/11+1/11;</p>
+<p>阈值0.5,4-6满足，对应最大精度为4/5</p>
+<p>Ap=1/11+1/11+1/11+1/11+1/11+4/55;</p>
+<p>阈值0.6,4-6满足，对应最大精度为4/5</p>
+<p>Ap=1/11+1/11+1/11+1/11+1/11+4/55+4/55;</p>
+<p>阈值0.7,5-6满足，对应最大精度为4/5</p>
+<p>Ap=1/11+1/11+1/11+1/11+1/11+4/55+4/55+4/55;</p>
+<p>阈值0.8，5-6满足，对应最大精度为4/5</p>
+<p>Ap=1/11+1/11+1/11+1/11+1/11+4/55+4/55+4/55+4/55;</p>
+<p>阈值为0.9和1.0的时候，没有满足的recall值了，因此这两个区间的最大精度都为0.</p>
+<p>所以最终Ap=1/11+1/11+1/11+1/11+1/11+4/55+4/55+4/55+4/55=41/55=0.7455;</p>
+<p>表示在这个类别下该分类器的平均精度为0.7455。</p>
+<p>AP的概念弄清楚后，mAP就很简单了，AP表示一个类别的检测性能，mAP就是对所有类别的AP再取一个均值，作为整个检测系统的性能指标。</p>
+<p>一点微小的工作，希望对学习dl的你有所帮助。</p>
+</span>
       
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/python/" rel="tag">#python</a>
-          
-        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/11/15/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/09/27/MATLAB与C-混合编程/" rel="next" title="MATLAB与C#混合编程">
+                <i class="fa fa-chevron-left"></i> MATLAB与C#混合编程
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/11/15/百度地图js中的回调函数/" rel="prev" title="百度地图js中的回调函数">
-                百度地图js中的回调函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -327,8 +390,8 @@ E:\test\run\1.txt
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/11/15/python遍历文件/"
-           data-title="python遍历文件" data-url="http://yoursite.com/2015/11/15/python遍历文件/">
+      <div class="ds-thread" data-thread-key="2016/11/23/跟着包神学dl之mAP是个什么鬼/"
+           data-title="跟着包神学dl之mAP是个什么鬼" data-url="http://yoursite.com/2016/11/23/跟着包神学dl之mAP是个什么鬼/">
       </div>
     
   </div>
